@@ -26,4 +26,7 @@ router.get("/", (req, res) => {
         });
 });
 
+const singlePostRoute = require('./singlePost');
+router.use("/post", singlePostRoute);
+
 module.exports = router;
