@@ -6,7 +6,7 @@ const firestore = require("firebase/firestore");
 // create a reference to the database
 const db = firestore.getFirestore();
 
-// Define index route -- get all posts
+// define index route -- get all posts
 router.get("/", (req, res) => {
     const postsQuery = firestore.getDocs(firestore.collection(db, "posts"));
     const postsArray = [];
@@ -28,5 +28,7 @@ router.get("/", (req, res) => {
 
 const singlePostRoute = require('./singlePost');
 router.use("/post", singlePostRoute);
+const createPostRoute = require('./createPost');
+router.use("/create", createPostRoute);
 
 module.exports = router;
